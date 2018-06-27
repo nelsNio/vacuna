@@ -1,0 +1,92 @@
+
+<div>
+    <h2><span>Paciente</span> {{vm.paciente.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Documento</span></dt>
+        <dd>
+            <span>{{vm.paciente.documento}}</span>
+        </dd>
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.paciente.nombre}}</span>
+        </dd>
+        <dt><span>Apellido</span></dt>
+        <dd>
+            <span>{{vm.paciente.apellido}}</span>
+        </dd>
+        <dt><span>Telefono</span></dt>
+        <dd>
+            <span>{{vm.paciente.telefono}}</span>
+        </dd>
+        <dt><span>Correo</span></dt>
+        <dd>
+            <span>{{vm.paciente.correo}}</span>
+        </dd>
+        <dt><span>Fecha Nacimiento</span></dt>
+        <dd>
+            <span>{{vm.paciente.fechaNacimiento | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Desplazado</span></dt>
+        <dd>
+            <span>{{vm.paciente.desplazado}}</span>
+        </dd>
+        <dt><span>Victima Conflicto</span></dt>
+        <dd>
+            <span>{{vm.paciente.victimaConflicto}}</span>
+        </dd>
+        <dt><span>Discapacidad</span></dt>
+        <dd>
+            <span>{{vm.paciente.discapacidad}}</span>
+        </dd>
+        <dt><span>Gestante</span></dt>
+        <dd>
+            <span>{{vm.paciente.gestante}}</span>
+        </dd>
+        <dt><span>Tipo Documento</span></dt>
+        <dd>
+            <a ui-sref="tipo-documento-detail({id:vm.paciente.tipoDocumentoId})">{{vm.paciente.tipoDocumentoNombre}}</a>
+        </dd>
+        <dt><span>Genero</span></dt>
+        <dd>
+            <a ui-sref="genero-detail({id:vm.paciente.generoId})">{{vm.paciente.generoNombre}}</a>
+        </dd>
+        <dt><span>Aseguradora</span></dt>
+        <dd>
+            <a ui-sref="aseguradora-detail({id:vm.paciente.aseguradoraId})">{{vm.paciente.aseguradoraNombre}}</a>
+        </dd>
+        <dt><span>Grupo Etnico</span></dt>
+        <dd>
+            <a ui-sref="grupo-etnico-detail({id:vm.paciente.grupoEtnicoId})">{{vm.paciente.grupoEtnicoNombre}}</a>
+        </dd>
+        <dt><span>Regimen</span></dt>
+        <dd>
+            <a ui-sref="regimen-detail({id:vm.paciente.regimenId})">{{vm.paciente.regimenNombre}}</a>
+        </dd>
+        <dt><span>Municipio</span></dt>
+        <dd>
+            <a ui-sref="municipio-detail({id:vm.paciente.municipioId})">{{vm.paciente.municipioNombre}}</a>
+        </dd>
+        <dt><span>Tipo Residencia</span></dt>
+        <dd>
+            <a ui-sref="tipo-residencia-detail({id:vm.paciente.tipoResidenciaId})">{{vm.paciente.tipoResidenciaNombre}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="paciente-detail.edit({id:vm.paciente.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+	
+	<button ng-click="vm.generar(vm.paciente.id)" type="button" class="btn btn-primary">
+        <span class="glyphicon glyphicon-asterisk"></span>
+        <span class="hidden-sm-down"> Generar Carné</span>
+    </button>
+</div>

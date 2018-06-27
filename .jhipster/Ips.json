@@ -1,0 +1,48 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "aplicacion",
+            "otherEntityName": "aplicacionVacuna",
+            "otherEntityRelationshipName": "ips"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "vacunador",
+            "otherEntityName": "vacunador",
+            "otherEntityRelationshipName": "ips"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipValidateRules": "required",
+            "otherEntityRelationshipName": "ips",
+            "relationshipName": "municipio",
+            "otherEntityName": "municipio",
+            "otherEntityField": "nombre",
+            "ownerSide": true
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "direccion",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180627010607",
+    "entityTableName": "ips",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

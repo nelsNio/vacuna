@@ -1,0 +1,72 @@
+<div>
+    <h2>Aplicacion Vacunas</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="aplicacion-vacuna.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Aplicacion Vacuna
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Fecha</span></th>
+                    <th><span>Vacunador</span></th>
+                    <th><span>Paciente</span></th>
+                    <th><span>Dosis</span></th>
+                    <th><span>Ips</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="aplicacionVacuna in vm.aplicacionVacunas track by aplicacionVacuna.id">
+                    <td><a ui-sref="aplicacion-vacuna-detail({id:aplicacionVacuna.id})">{{aplicacionVacuna.id}}</a></td>
+                        <td>{{aplicacionVacuna.fecha | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="vacunador-detail({id:aplicacionVacuna.vacunadorId})">{{aplicacionVacuna.vacunadorNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="paciente-detail({id:aplicacionVacuna.pacienteId})">{{aplicacionVacuna.pacienteNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="dosis-detail({id:aplicacionVacuna.dosisId})">{{aplicacionVacuna.dosisNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="ips-detail({id:aplicacionVacuna.ipsId})">{{aplicacionVacuna.ipsNombre}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="aplicacion-vacuna-detail({id:aplicacionVacuna.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="aplicacion-vacuna.edit({id:aplicacionVacuna.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="aplicacion-vacuna.delete({id:aplicacionVacuna.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Paciente.
+    -->
+    <changeSet id="20180627010601-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_documento_id"
+                                 baseTableName="paciente"
+                                 constraintName="fk_paciente_tipo_documento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_documento"/>
+
+        <addForeignKeyConstraint baseColumnNames="genero_id"
+                                 baseTableName="paciente"
+                                 constraintName="fk_paciente_genero_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genero"/>
+
+        <addForeignKeyConstraint baseColumnNames="aseguradora_id"
+                                 baseTableName="paciente"
+                                 constraintName="fk_paciente_aseguradora_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aseguradora"/>
+
+        <addForeignKeyConstraint baseColumnNames="grupo_etnico_id"
+                                 baseTableName="paciente"
+                                 constraintName="fk_paciente_grupo_etnico_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="grupo_etnico"/>
+
+        <addForeignKeyConstraint baseColumnNames="regimen_id"
+                                 baseTableName="paciente"
+                                 constraintName="fk_paciente_regimen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="regimen"/>
+
+        <addForeignKeyConstraint baseColumnNames="municipio_id"
+                                 baseTableName="paciente"
+                                 constraintName="fk_paciente_municipio_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="municipio"/>
+
+        <addForeignKeyConstraint baseColumnNames="tipo_residencia_id"
+                                 baseTableName="paciente"
+                                 constraintName="fk_paciente_tipo_residencia_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_residencia"/>
+
+    </changeSet>
+</databaseChangeLog>

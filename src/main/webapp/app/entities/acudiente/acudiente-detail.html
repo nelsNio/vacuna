@@ -1,0 +1,47 @@
+
+<div>
+    <h2><span>Acudiente</span> {{vm.acudiente.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Documento</span></dt>
+        <dd>
+            <span>{{vm.acudiente.documento}}</span>
+        </dd>
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.acudiente.nombre}}</span>
+        </dd>
+        <dt><span>Apellido</span></dt>
+        <dd>
+            <span>{{vm.acudiente.apellido}}</span>
+        </dd>
+        <dt><span>Fecha Nacimiento</span></dt>
+        <dd>
+            <span>{{vm.acudiente.fechaNacimiento | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span>Tipo Documento</span></dt>
+        <dd>
+            <a ui-sref="tipo-documento-detail({id:vm.acudiente.tipoDocumentoId})">{{vm.acudiente.tipoDocumentoNombre}}</a>
+        </dd>
+        <dt><span>Genero</span></dt>
+        <dd>
+            <a ui-sref="genero-detail({id:vm.acudiente.generoId})">{{vm.acudiente.generoNombre}}</a>
+        </dd>
+        <dt><span>Paciente</span></dt>
+        <dd>
+            <a ui-sref="paciente-detail({id:vm.acudiente.pacienteId})">{{vm.acudiente.pacienteNombre}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="acudiente-detail.edit({id:vm.acudiente.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

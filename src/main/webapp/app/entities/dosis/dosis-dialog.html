@@ -1,0 +1,92 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myDosisLabel">Create or edit a Dosis</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.dosis.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.dosis.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_nombre">Nombre</label>
+            <input type="text" class="form-control" name="nombre" id="field_nombre"
+                    ng-model="vm.dosis.nombre"
+                    required/>
+            <div ng-show="editForm.nombre.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.nombre.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_edadMinima">Edad Minima</label>
+            <input type="number" class="form-control" name="edadMinima" id="field_edadMinima"
+                    ng-model="vm.dosis.edadMinima"
+                    required/>
+            <div ng-show="editForm.edadMinima.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.edadMinima.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.edadMinima.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_edadMaxima">Edad Maxima</label>
+            <input type="number" class="form-control" name="edadMaxima" id="field_edadMaxima"
+                    ng-model="vm.dosis.edadMaxima"
+                    required/>
+            <div ng-show="editForm.edadMaxima.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.edadMaxima.$error.required">
+                    This field is required.
+                </p>
+                <p class="help-block"
+                    ng-show="editForm.edadMaxima.$error.number">
+                    This field should be a number.
+                </p>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_embarazo">Embarazo</label>
+                <input type="checkbox" name="embarazo" id="field_embarazo"
+                          ng-model="vm.dosis.embarazo"/>
+            <div ng-show="editForm.embarazo.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.embarazo.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_biologico">Biologico</label>
+            <select class="form-control" id="field_biologico" name="biologico" ng-model="vm.dosis.biologicoId" ng-options="biologico.id as biologico.nombre for biologico in vm.biologicos"             required>
+            </select>
+        </div>
+        <div ng-show="editForm.biologico.$invalid">
+            <p class="help-block"
+                ng-show="editForm.biologico.$error.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

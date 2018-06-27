@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Aseguradora.
+    -->
+    <changeSet id="20180627010613-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="aseguradoras_id"
+                                 baseTableName="aseguradora_regimen"
+                                 constraintName="fk_aseguradora_regimen_aseguradoras_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="aseguradora"/>
+        <addForeignKeyConstraint baseColumnNames="regimen_id"
+                                 baseTableName="aseguradora_regimen"
+                                 constraintName="fk_aseguradora_regimen_regimen_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="regimen"/>
+        
+    </changeSet>
+</databaseChangeLog>

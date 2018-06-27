@@ -1,0 +1,86 @@
+
+<form name="editForm" role="form" novalidate ng-submit="vm.save()" show-validation>
+
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                ng-click="vm.clear()">&times;</button>
+        <h4 class="modal-title" id="myAplicacionVacunaLabel">Create or edit a Aplicacion Vacuna</h4>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" ng-show="vm.aplicacionVacuna.id">
+            <label for="id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                    ng-model="vm.aplicacionVacuna.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="control-label" for="field_fecha">Fecha</label>
+                <div class="input-group">
+                    <input id="field_fecha" type="text" class="form-control" name="fecha" uib-datepicker-popup="{{dateformat}}" ng-model="vm.aplicacionVacuna.fecha" is-open="vm.datePickerOpenStatus.fecha"
+                    required/>
+                    <span class="input-group-btn">
+                        <button type="button" class="btn btn-default" ng-click="vm.openCalendar('fecha')"><i class="glyphicon glyphicon-calendar"></i></button>
+                    </span>
+                </div>
+            <div ng-show="editForm.fecha.$invalid">
+                <p class="help-block"
+                    ng-show="editForm.fecha.$error.required">
+                    This field is required.
+                </p>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="field_vacunador">Vacunador</label>
+            <select class="form-control" id="field_vacunador" name="vacunador" ng-model="vm.aplicacionVacuna.vacunadorId" ng-options="vacunador.id as vacunador.nombre for vacunador in vm.vacunadors"             required>
+            </select>
+        </div>
+        <div ng-show="editForm.vacunador.$invalid">
+            <p class="help-block"
+                ng-show="editForm.vacunador.$error.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="field_paciente">Paciente</label>
+            <select class="form-control" id="field_paciente" name="paciente" ng-model="vm.aplicacionVacuna.pacienteId" ng-options="paciente.id as paciente.nombre for paciente in vm.pacientes"             required>
+            </select>
+        </div>
+        <div ng-show="editForm.paciente.$invalid">
+            <p class="help-block"
+                ng-show="editForm.paciente.$error.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="field_dosis">Dosis</label>
+            <select class="form-control" id="field_dosis" name="dosis" ng-model="vm.aplicacionVacuna.dosisId" ng-options="dosis.id as dosis.nombre for dosis in vm.doses"             required>
+            </select>
+        </div>
+        <div ng-show="editForm.dosis.$invalid">
+            <p class="help-block"
+                ng-show="editForm.dosis.$error.required">
+                This field is required.
+            </p>
+        </div>
+        <div class="form-group">
+            <label for="field_ips">Ips</label>
+            <select class="form-control" id="field_ips" name="ips" ng-model="vm.aplicacionVacuna.ipsId" ng-options="ips.id as ips.nombre for ips in vm.ips"             required>
+            </select>
+        </div>
+        <div ng-show="editForm.ips.$invalid">
+            <p class="help-block"
+                ng-show="editForm.ips.$error.required">
+                This field is required.
+            </p>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal" ng-click="vm.clear()">
+            <span class="glyphicon glyphicon-ban-circle"></span>&nbsp;<span>Cancel</span>
+        </button>
+        <button type="submit" ng-disabled="editForm.$invalid || vm.isSaving" class="btn btn-primary">
+            <span class="glyphicon glyphicon-save"></span>&nbsp;<span>Save</span>
+        </button>
+    </div>
+</form>

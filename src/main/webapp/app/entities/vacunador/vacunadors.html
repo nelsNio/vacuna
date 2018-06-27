@@ -1,0 +1,78 @@
+<div>
+    <h2>Vacunadors</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="vacunador.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Vacunador
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Documento</span></th>
+                    <th><span>Nombre</span></th>
+                    <th><span>Apellido</span></th>
+                    <th><span>Telefono</span></th>
+                    <th><span>Correo</span></th>
+                    <th><span>Fecha Nacimiento</span></th>
+                    <th><span>Tipo Documento</span></th>
+                    <th><span>Genero</span></th>
+                    <th><span>Ips</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="vacunador in vm.vacunadors track by vacunador.id">
+                    <td><a ui-sref="vacunador-detail({id:vacunador.id})">{{vacunador.id}}</a></td>
+                    <td>{{vacunador.documento}}</td>
+                    <td>{{vacunador.nombre}}</td>
+                    <td>{{vacunador.apellido}}</td>
+                    <td>{{vacunador.telefono}}</td>
+                    <td>{{vacunador.correo}}</td>
+                        <td>{{vacunador.fechaNacimiento | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="tipo-documento-detail({id:vacunador.tipoDocumentoId})">{{vacunador.tipoDocumentoNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="genero-detail({id:vacunador.generoId})">{{vacunador.generoNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="ips-detail({id:vacunador.ipsId})">{{vacunador.ipsNombre}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="vacunador-detail({id:vacunador.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="vacunador.edit({id:vacunador.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="vacunador.delete({id:vacunador.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

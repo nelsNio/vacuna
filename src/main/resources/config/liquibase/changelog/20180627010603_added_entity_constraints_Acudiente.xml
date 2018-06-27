@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Acudiente.
+    -->
+    <changeSet id="20180627010603-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="tipo_documento_id"
+                                 baseTableName="acudiente"
+                                 constraintName="fk_acudiente_tipo_documento_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="tipo_documento"/>
+
+        <addForeignKeyConstraint baseColumnNames="genero_id"
+                                 baseTableName="acudiente"
+                                 constraintName="fk_acudiente_genero_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="genero"/>
+
+        <addForeignKeyConstraint baseColumnNames="paciente_id"
+                                 baseTableName="acudiente"
+                                 constraintName="fk_acudiente_paciente_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="paciente"/>
+
+    </changeSet>
+</databaseChangeLog>

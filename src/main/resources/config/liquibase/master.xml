@@ -5,6 +5,31 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
 
     <include file="config/liquibase/changelog/00000000000000_initial_schema.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010600_added_entity_TipoDocumento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010601_added_entity_Paciente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010602_added_entity_Vacunador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010603_added_entity_Acudiente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010604_added_entity_AplicacionVacuna.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010605_added_entity_Dosis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010606_added_entity_Biologico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010607_added_entity_Ips.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010608_added_entity_Municipio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010609_added_entity_Departamento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010610_added_entity_Pais.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010611_added_entity_TipoResidencia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010612_added_entity_GrupoEtnico.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010613_added_entity_Aseguradora.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010614_added_entity_Regimen.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010615_added_entity_Genero.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
+    <include file="config/liquibase/changelog/20180627010601_added_entity_constraints_Paciente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010602_added_entity_constraints_Vacunador.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010603_added_entity_constraints_Acudiente.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010604_added_entity_constraints_AplicacionVacuna.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010605_added_entity_constraints_Dosis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010607_added_entity_constraints_Ips.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010608_added_entity_constraints_Municipio.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010609_added_entity_constraints_Departamento.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180627010613_added_entity_constraints_Aseguradora.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

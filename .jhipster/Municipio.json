@@ -1,0 +1,40 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "paciente",
+            "otherEntityName": "paciente",
+            "otherEntityRelationshipName": "municipio"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "departamento",
+            "otherEntityName": "departamento",
+            "otherEntityField": "nombre"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "relationshipName": "ips",
+            "otherEntityName": "ips",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "municipio"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "nombre",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180627010608",
+    "entityTableName": "municipio",
+    "dto": "mapstruct",
+    "pagination": "no",
+    "service": "no",
+    "jpaMetamodelFiltering": false
+}

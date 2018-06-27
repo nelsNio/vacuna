@@ -1,0 +1,39 @@
+
+<div>
+    <h2><span>Dosis</span> {{vm.dosis.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="dl-horizontal jh-entity-details">
+        <dt><span>Nombre</span></dt>
+        <dd>
+            <span>{{vm.dosis.nombre}}</span>
+        </dd>
+        <dt><span>Edad Minima</span></dt>
+        <dd>
+            <span>{{vm.dosis.edadMinima}}</span>
+        </dd>
+        <dt><span>Edad Maxima</span></dt>
+        <dd>
+            <span>{{vm.dosis.edadMaxima}}</span>
+        </dd>
+        <dt><span>Embarazo</span></dt>
+        <dd>
+            <span>{{vm.dosis.embarazo}}</span>
+        </dd>
+        <dt><span>Biologico</span></dt>
+        <dd>
+            <a ui-sref="biologico-detail({id:vm.dosis.biologicoId})">{{vm.dosis.biologicoNombre}}</a>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            ui-sref="{{ vm.previousState }}"
+            class="btn btn-info">
+        <span class="glyphicon glyphicon-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button" ui-sref="dosis-detail.edit({id:vm.dosis.id})" class="btn btn-primary">
+        <span class="glyphicon glyphicon-pencil"></span>
+        <span class="hidden-sm-down"> Edit</span>
+    </button>
+</div>

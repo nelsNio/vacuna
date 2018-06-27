@@ -1,0 +1,74 @@
+<div>
+    <h2>Acudientes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="acudiente.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Acudiente
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Documento</span></th>
+                    <th><span>Nombre</span></th>
+                    <th><span>Apellido</span></th>
+                    <th><span>Fecha Nacimiento</span></th>
+                    <th><span>Tipo Documento</span></th>
+                    <th><span>Genero</span></th>
+                    <th><span>Paciente</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="acudiente in vm.acudientes track by acudiente.id">
+                    <td><a ui-sref="acudiente-detail({id:acudiente.id})">{{acudiente.id}}</a></td>
+                    <td>{{acudiente.documento}}</td>
+                    <td>{{acudiente.nombre}}</td>
+                    <td>{{acudiente.apellido}}</td>
+                        <td>{{acudiente.fechaNacimiento | date:'mediumDate'}}</td>
+                    <td>
+                        <a ui-sref="tipo-documento-detail({id:acudiente.tipoDocumentoId})">{{acudiente.tipoDocumentoNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="genero-detail({id:acudiente.generoId})">{{acudiente.generoNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="paciente-detail({id:acudiente.pacienteId})">{{acudiente.pacienteNombre}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="acudiente-detail({id:acudiente.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="acudiente.edit({id:acudiente.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="acudiente.delete({id:acudiente.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

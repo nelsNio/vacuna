@@ -1,0 +1,112 @@
+
+entity TipoDocumento{
+	nombre String required
+}
+entity Paciente {
+	documento String required minlength(8) maxlength(10) pattern(/^[1-9][0-9]*$/),
+	nombre String required,
+	apellido String required,
+    telefono String minlength(10) maxlength(10) pattern(/^[0-9]*$/),
+    correo String,
+    fechaNacimiento LocalDate required,
+    desplazado Boolean required,
+    victimaConflicto Boolean required,
+    discapacidad Boolean required,
+    gestante Boolean required
+}
+
+entity Vacunador {
+	documento String required minlength(8) maxlength(10) pattern(/^[1-9][0-9]*$/),
+	nombre String required,
+	apellido String required,
+    telefono String  required minlength(10) maxlength(10) pattern(/^[0-9]*$/),
+    correo String,
+    fechaNacimiento LocalDate required
+}
+
+entity Acudiente {
+	documento String required minlength(8) maxlength(10) pattern(/^[1-9][0-9]*$/),
+	nombre String required,
+	apellido String required,
+    fechaNacimiento LocalDate required
+}
+
+entity AplicacionVacuna {
+	fecha LocalDate required,
+}
+entity Dosis {
+	nombre String required,
+	edadMinima Integer required,
+    edadMaxima Integer required,
+    embarazo Boolean required
+}
+entity Biologico {
+	nombre String required,
+	lote String required,
+    loteJeringa String required
+}
+entity Ips {
+	nombre String required,
+	direccion String required
+}
+
+entity Municipio {
+	nombre String required
+}
+
+entity Departamento {
+	nombre String required
+}
+
+entity Pais {
+	nombre String required
+}
+
+entity TipoResidencia {
+	nombre String required
+}
+
+entity GrupoEtnico {
+	nombre String required
+}
+
+entity Aseguradora {
+	nombre String required
+}
+
+entity Regimen {
+	nombre String required
+}
+
+entity Genero {
+	nombre String required
+}
+
+relationship ManyToMany{
+Ips{Municipio(nombre) required} to Municipio{ips},
+Aseguradora{Regimen(nombre) required} to Regimen{aseguradora}
+}
+relationship OneToMany {
+  Vacunador{aplicacion} to AplicacionVacuna{Vacunador(nombre) required},
+  Paciente{aplicacion} to AplicacionVacuna{Paciente(nombre) required},
+  Dosis{aplicacion} to AplicacionVacuna{Dosis(nombre) required},
+  TipoDocumento{paciente} to Paciente{TipoDocumento(nombre) required},
+  TipoDocumento{vacunador} to Vacunador{TipoDocumento(nombre) required},
+  TipoDocumento{acudiente} to Acudiente{TipoDocumento(nombre) required},
+  Genero{paciente} to Paciente{Genero(nombre) required},
+  Genero{vacunador} to Vacunador{Genero(nombre) required},
+  Genero{acudiente} to Acudiente{Genero(nombre) required},
+  Biologico{dosis} to Dosis{Biologico(nombre) required},
+  Ips{aplicacion} to AplicacionVacuna{Ips(nombre) required},
+  Ips{vacunador} to Vacunador{Ips(nombre) required},
+  Pais{departamento} to Departamento{Pais(nombre) required},
+  Departamento{municipio} to Municipio{Departamento(nombre) required},
+  Paciente{acudiente} to Acudiente{Paciente(nombre) required},
+  Aseguradora{paciente} to Paciente{Aseguradora(nombre)},
+  GrupoEtnico{paciente} to Paciente{GrupoEtnico(nombre)},
+  Regimen{paciente} to Paciente{Regimen(nombre) required},
+  Municipio{paciente} to Paciente{Municipio(nombre)},
+  TipoResidencia{paciente} to Paciente{TipoResidencia(nombre) required}
+}
+
+dto * with mapstruct

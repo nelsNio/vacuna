@@ -1,0 +1,102 @@
+<div>
+    <h2>Pacientes</h2>
+    <jhi-alert></jhi-alert>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-4 no-padding-left">
+                <button class="btn btn-primary" ui-sref="paciente.new" >
+                    <span class="glyphicon glyphicon-plus"></span>
+                    <span >
+                        Create new Paciente
+                    </span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive">
+        <table class="jh-table table table-striped">
+            <thead>
+                <tr>
+                    <th><span>ID</span></th>
+                    <th><span>Documento</span></th>
+                    <th><span>Nombre</span></th>
+                    <th><span>Apellido</span></th>
+                    <th><span>Telefono</span></th>
+                    <th><span>Correo</span></th>
+                    <th><span>Fecha Nacimiento</span></th>
+                    <th><span>Desplazado</span></th>
+                    <th><span>Victima Conflicto</span></th>
+                    <th><span>Discapacidad</span></th>
+                    <th><span>Gestante</span></th>
+                    <th><span>Tipo Documento</span></th>
+                    <th><span>Genero</span></th>
+                    <th><span>Aseguradora</span></th>
+                    <th><span>Grupo Etnico</span></th>
+                    <th><span>Regimen</span></th>
+                    <th><span>Municipio</span></th>
+                    <th><span>Tipo Residencia</span></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="paciente in vm.pacientes track by paciente.id">
+                    <td><a ui-sref="paciente-detail({id:paciente.id})">{{paciente.id}}</a></td>
+                    <td>{{paciente.documento}}</td>
+                    <td>{{paciente.nombre}}</td>
+                    <td>{{paciente.apellido}}</td>
+                    <td>{{paciente.telefono}}</td>
+                    <td>{{paciente.correo}}</td>
+                        <td>{{paciente.fechaNacimiento | date:'mediumDate'}}</td>
+                    <td>{{paciente.desplazado}}</td>
+                    <td>{{paciente.victimaConflicto}}</td>
+                    <td>{{paciente.discapacidad}}</td>
+                    <td>{{paciente.gestante}}</td>
+                    <td>
+                        <a ui-sref="tipo-documento-detail({id:paciente.tipoDocumentoId})">{{paciente.tipoDocumentoNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="genero-detail({id:paciente.generoId})">{{paciente.generoNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="aseguradora-detail({id:paciente.aseguradoraId})">{{paciente.aseguradoraNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="grupo-etnico-detail({id:paciente.grupoEtnicoId})">{{paciente.grupoEtnicoNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="regimen-detail({id:paciente.regimenId})">{{paciente.regimenNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="municipio-detail({id:paciente.municipioId})">{{paciente.municipioNombre}}</a>
+                    </td>
+                    <td>
+                        <a ui-sref="tipo-residencia-detail({id:paciente.tipoResidenciaId})">{{paciente.tipoResidenciaNombre}}</a>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group flex-btn-group-container">
+                            <button type="submit"
+                                    ui-sref="paciente-detail({id:paciente.id})"
+                                    class="btn btn-info btn-sm">
+                                <span class="glyphicon glyphicon-eye-open"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="paciente.edit({id:paciente.id})"
+                                    class="btn btn-primary btn-sm">
+                                <span class="glyphicon glyphicon-pencil"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                            <button type="submit"
+                                    ui-sref="paciente.delete({id:paciente.id})"
+                                    class="btn btn-danger btn-sm">
+                                <span class="glyphicon glyphicon-remove-circle"></span>
+                                <span class="hidden-sm-down"></span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
