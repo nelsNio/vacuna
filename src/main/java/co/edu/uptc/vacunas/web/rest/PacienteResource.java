@@ -7,6 +7,7 @@ import co.edu.uptc.vacunas.repository.PacienteRepository;
 import co.edu.uptc.vacunas.web.rest.errors.BadRequestAlertException;
 import co.edu.uptc.vacunas.web.rest.util.HeaderUtil;
 import co.edu.uptc.vacunas.service.dto.PacienteDTO;
+import co.edu.uptc.vacunas.service.dto.ReporteVacunadosDTO;
 import co.edu.uptc.vacunas.service.mapper.PacienteMapper;
 import io.github.jhipster.web.util.ResponseUtil;
 import org.slf4j.Logger;
@@ -99,6 +100,19 @@ public class PacienteResource {
         List<Paciente> pacientes = pacienteRepository.findAll();
         return pacienteMapper.toDto(pacientes);
         }
+    /**
+     * GET  /pacientes : get all the pacientes.
+     *
+     * @return the ResponseEntity with status 200 (OK) and the list of pacientes in body
+     */
+    @GetMapping("/pacientes/reporte")
+    @Timed
+    public List<ReporteVacunadosDTO> getReportesPacientes() {
+        log.debug("REST request to get all Pacientes");
+        
+        return null;
+        }
+
 
     /**
      * GET  /pacientes/:id : get the "id" paciente.
