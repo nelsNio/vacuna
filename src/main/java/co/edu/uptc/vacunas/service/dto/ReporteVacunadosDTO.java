@@ -27,7 +27,26 @@ public class ReporteVacunadosDTO implements Serializable {
 
     private ArrayList<String> vacunadoFaltantes;
 
-	/**
+    public ReporteVacunadosDTO() {
+    }
+
+    public ReporteVacunadosDTO(String documento, String nombre, String apellido, ArrayList<String> vacunadoContra, ArrayList<String> vacunadoFaltantes) {
+        this.documento = documento;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.vacunadoContra = vacunadoContra;
+        this.vacunadoFaltantes = vacunadoFaltantes;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
+/**
 	 * @return the documento
 	 */
 	public String getDocumento() {
@@ -84,6 +103,20 @@ public class ReporteVacunadosDTO implements Serializable {
 	}
 
 
+        public ArrayList<String> addVacunaContra(String dosis){
+            if(this.vacunadoContra==null){
+                this.vacunadoContra=new ArrayList<>();
+            }
+            this.vacunadoContra.add(dosis);
+            return this.vacunadoContra;
+        }
+        public ArrayList<String> addVacunaFaltante(String dosis){
+            if(this.vacunadoFaltantes==null){
+                this.vacunadoFaltantes=new ArrayList<>();
+            }
+            this.vacunadoFaltantes.add(dosis);
+            return this.vacunadoFaltantes;
+        }
 
     
 }

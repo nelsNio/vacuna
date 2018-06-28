@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.net.URI;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 import java.util.List;
 import java.util.Optional;
@@ -109,8 +110,52 @@ public class PacienteResource {
     @Timed
     public List<ReporteVacunadosDTO> getReportesPacientes() {
         log.debug("REST request to get all Pacientes");
+        ReporteVacunadosDTO dTO = new ReporteVacunadosDTO();
+        dTO.setDocumento("1021232112");
+        dTO.setNombre("Marcos");
+        dTO.setApellido("lo chupa");
+        ArrayList<String> al = new ArrayList();
+        al.add("peste");
+        al.add("buaso");
         
-        return null;
+        ArrayList<String> al2 = new ArrayList();
+        al2.add("qweqwe");
+        al2.add("zxccc");
+        
+        dTO.setVacunadoContra(al2);
+        dTO.setVacunadoFaltantes(al);
+        ArrayList<ReporteVacunadosDTO> al3 = new ArrayList();
+        //al3.add(dTO);
+        //al3.add(dTO);
+        
+        //object tiene esta estructura
+        //documento
+        //nombre
+        //apellido
+        //dosis
+        
+        List<String> documentos = new ArrayList<>();
+        List<Object[]> list = pacienteRepository.findAllApplies();
+        
+        for (Object[] objects : list) {
+            ReporteVacunadosDTO dTO1 = new ReporteVacunadosDTO();
+            for (int i = 0; i < objects.length; i++) {
+                if (!documentos.contains(""+objects[0])) {
+                    documentos.add(""+objects[0]);
+                    dTO1.setDocumento(""+objects[0]);
+                    dTO1.setNombre(""+objects[1]);
+                    dTO1.setApellido(""+objects[2]);
+                    if (objects[3]==null) {
+                        dTO1.addVacunaContra("");
+                    }else{
+                        dTO1.addVacunaContra(""+objects[3]);
+                    }
+                    dTO1.setVacunadoFaltantes(al2);
+                }
+            }
+        }        
+        
+        return al3;
         }
 
 
